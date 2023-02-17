@@ -19,6 +19,28 @@ export default {
         this.currentGuess = 0
     },
 
+    get allGuesses() {
+        return this.guesses.slice(0, this.currentGuess).join('').split('')
+    },
+
+    get exactGuesses() {
+        return (
+            this.word.split('').filter((letter, i) => {
+                return this.guesses
+                            .slice(0, this.currentGuess)
+                            .map((word) => word[i])
+                            .includes(letter)
+            })
+        )
+    },
+
+    get inexactGuesses () {
+        return this.word
+                   .split('')
+                   .filter((letter) => this.allGuesses
+                                           .includes(letter))
+    },
+
     submitGuess() {
         if (words.includes(this.guesses[this.currentGuess])) {
             this.currentGuess += 1

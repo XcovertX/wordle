@@ -10,7 +10,7 @@ export default function Guess({ guess, word, isGuessed }) {
             ? 'bg-yellow-400'
             : 'bg-black'
             return(
-                <div className={`h-16 w-16 border border-gray-400 ${bgColor} font-bold uppercase text-white flex items-center justify-center`}>
+                <div className={`h-12 w-12 border border-gray-400 ${bgColor} font-bold uppercase text-white flex items-center justify-center`}>
                     {guess[i]}
                 </div>
             )
